@@ -3,9 +3,9 @@ main:
   - title: "My Resume"
     url: https://github.com/mayanksha/resume/blob/master/one_page.pdf
   - title: "Contact"
-    url: https://mmistakes.github.io/minimal-mistakes/about/
+    url: /contact/
   - title: "About Me"
-    url: https://mmistakes.github.io/minimal-mistakes/about/
+    url: /about/
     # - title: "Sample Posts"
     #   url: /year-archive/
     # - title: "Sample Collections"

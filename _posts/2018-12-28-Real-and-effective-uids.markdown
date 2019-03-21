@@ -1,13 +1,15 @@
 ---
-layout: posts 
 title: "Real UIDs vs Effective UIDs and Setuid Programs"
+toc: true
+toc_label: "Table of Contents"
+toc_icon: "file-alt"
 ---
 
 
 ## Intro
 In all \*nix systems, a UID or a "User ID Number" is an integer which maps your particular username (`whoami`) to this unique integer.
 These mappings between the actual username and the UIDs is maintained in the `/etc/passwd` file. 
-Every running process has at least two UIDs present in the process control block (`task_struct` in linux source code) which can be seen looked seen by this command
+Every running process has at least two UIDs present in the process control block (`task_struct` in linux source code) which can be seen by this command
 
 	cat /proc/${PID}/status | grep 'Uid'
 
