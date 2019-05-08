@@ -105,7 +105,7 @@ analytics:
 author:
   name             : "Mayank Sharma"
   avatar           : "/assets/images/profile.jpg" 
-  bio              : "A Linux and Information Security enthusiast. Loves CTFs, and the accompanied adrenalise rush that comes with them."
+  bio              : "A Linux and Information Security enthusiast. Loves CTFs, and the accompanied adrenaline rush. Apart from this, I'm interested in Systems and Software Architecture, and love to contribute to Open Source."
   location         : "Kanpur, India"
   email            :
   links:
@@ -124,6 +124,9 @@ author:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/mayanksha"
+    - label: "GitLab"
+      icon: "fab fa-fw fa-gitlab"
+      url: "https://gitlab.gnome.org/mayanksha"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
