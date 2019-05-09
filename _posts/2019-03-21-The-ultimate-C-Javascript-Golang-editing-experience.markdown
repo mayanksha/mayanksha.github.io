@@ -147,8 +147,8 @@ Unfortunately, this blog is written using markdown and hence doesnt't have suppo
 
 ## Ending Notes
 
-I may seem fanatic to some since they may question why I have spent so much time perfecting Vim. I say that it actually saves me a lot of time in the long run. I have to type lots and lots of text everyday (and lots of code too, albeit not on a daily basis). I am a touch typist and I type fairly fast and not having to lift my fingers off the keyboard is a boon when you're in the Programming Jedi mode. 
+I may seem like a madman to some since they may ask why I have spent so much time perfecting Vim. The answer to my critics is that it in the long run, it actually saves me a lot of time. I am a touch typist and I type fairly fast and not having to lift my fingers off the keyboard is a boon when you're in the Programming Jedi mode. Add to that, I can clone my `.vimrc` on any server and within a couple of minutes, I have my dev environment up and running. Vim <3!
 
-Lastly, comments and critique is welcome! See you in next part. :-)
+Lastly, comments and suggestions are welcome! See you in next part. :-)
 
 
