@@ -398,6 +398,21 @@ body:hover .visually-hidden button {
 }
 
 /*
+   Not Sticky, not fixed to top content
+   ========================================================================== */
+
+.not-sticky {
+  @include breakpoint($large) {
+    @include clearfix();
+    position: relative;
+    top: 2em;
+
+    > * {
+      display: block;
+    }
+  }
+}
+/*
    Wells
    ========================================================================== */
 

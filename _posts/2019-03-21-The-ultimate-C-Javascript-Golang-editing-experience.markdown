@@ -8,7 +8,6 @@ toc_sticky: true
 
 
 ## Intro
-
 How many times have you met someone boasting about Vim (or Emacs or Nano), and the subsequent productivity boosts that they claim to have achieved? If you belong to the programming fraternity, I'm sure it's quite a lot. I'm not here to wage some kind of editor War, yet my allegiance lay with Vim, simply because that's what I've been using from my fresher year.
 
 I don't know if I suffer from OCD (Obsessive Compulsive Disorder), but deep down I have this knack for perfection and I simply can't take my mind off some thing until I have mastered it to perfection.
