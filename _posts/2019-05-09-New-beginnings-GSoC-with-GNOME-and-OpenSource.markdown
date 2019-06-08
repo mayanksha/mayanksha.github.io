@@ -14,10 +14,14 @@ tags:
     - libgdata
 ---
 
+
+<img src="/assets/images/gnomeandgsoc.png" alt="GSoC + GNOME" style="display: block; margin: auto;">
+
 ## Prologue
+
 ***"Well begun is half done!"***
 
-Or, rather the way my mom puts it - ***"Getting something to begin is half the work done, and the biggest hurdle overcome"***. This sentence has been really influential to me, for it makes me do things which otherwise I'd procrastinate and put off for later. Right from my freshmen year, I have used various opensource tools and distros, and hence, I consider myself a proponent of the whole ideology of free software. Like everyone else, I too started my *nix journey with Ubuntu and pretty soon, I got annoyed by the bloatware that Canonical had stuffed in - Amazon App, that too on Sidebar? Are you really kidding me? That's when I searched for other Desktop Managers (with floating windows) and found that GNOME had one. I made a switch to GNOME then, but soon shifted over to Arch and that's when I felt how much I loved GDM. 
+Or, rather the way my mom puts it - ***"Getting something to begin is half the work done, and the biggest hurdle overcome"***. This sentence has been really influential to me, for it makes me do things which otherwise I'd procrastinate and put off for later. Right from my freshmen year, I have used various opensource tools and distros, and hence, I consider myself a proponent of the whole ideology of free software. Like everyone else, I too started my \*nix journey with Ubuntu and pretty soon, I got annoyed by the bloatware that Canonical had stuffed in - Amazon App, that too on Sidebar? Are you really kidding me? That's when I searched for other Desktop Managers (with floating windows) and found that GNOME had one. I made a switch to GNOME then, but soon shifted over to Arch and that's when I felt how much I loved GDM. 
 
 GDM worked well out of the box, and since Wayland is default these days, initially I didn't trouble myself with changing it. Thanks to Arch wiki, I had everything working, including the Nvidia Graphics. I loved how snappy GNOME felt whenever I pressed the Super key, its notification system, nautilus (File Manager), evince (Document Viewer) and the support for plugins was a cherry on the cake. I had some issues with WiFi Hotspot in Network Manager, but I eventually fixed them. 
 
@@ -56,10 +60,4 @@ I'd be updating this blog fortnightly, and I've set my milestones according to t
 Finally, a big thanks to GNOME for believing in me and giving me this opportunity to contribute. I'd also like to thank my mentor Ondrej Holy for sitting patiently with me, for testing every change I make, and for guiding me. A big thanks to Philip Withnall (libgdata Maintainer, for his review of my code, and patiently answering my questions) and Debarshi Ray (for his excellent [post on volatile paths](https://debarshiray.wordpress.com/2015/09/13/google-drive-and-gnome-what-is-a-volatile-path/)). 
 
 There's a lot to be done here, and I sure want to stick with GNOME in the long run. To every aspriring GSoC'er, keep Coding and keep spreading the love for Open Source! <3
-
-
-
-
-
-
 
