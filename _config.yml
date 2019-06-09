@@ -20,12 +20,12 @@ title                    : "A Hacker's Den"
 title_separator          : "-"
 name                     : "Mayank Sharma"
 description              : "A Linux Enthusiast's Den"
-url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : "https://msharma.in"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "mayanksha/infosec"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
   breadcrumbs            : true # true, false (default)
-words_per_minute         : 100 
+words_per_minute         : 150
 comments:
   provider               : # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "staticman_v2", "utterances", "custom"
   disqus:
@@ -104,7 +104,7 @@ analytics:
 # Site Author
 author:
   name             : "Mayank Sharma"
-  avatar           : "/assets/images/profile.jpg" 
+  avatar           : "/assets/images/profile.jpg"
   bio              : "A Linux and Information Security enthusiast. Loves CTFs, and the accompanied adrenaline rush. Apart from this, I'm interested in Systems and Software Architecture, and love to contribute to Open Source."
   location         : "Kanpur, India"
   email            :
