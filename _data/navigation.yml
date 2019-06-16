@@ -1,7 +1,7 @@
 # main links
 main:
   - title: "My Resume"
-    url: https://github.com/mayanksha/resume/blob/master/one_page.pdf
+    url: /resume.pdf/
   - title: "Contact"
     url: /contact/
   - title: "About Me"
