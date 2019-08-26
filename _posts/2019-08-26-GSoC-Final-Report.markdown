@@ -18,17 +18,23 @@ It has rightly been said - "All good things come to an end". Google Summer of Co
 
 For a detailed explanation of my project and the Google Backend for GVfs, please see [my last post](/gsoc%202019/GSoC-GVfs-and-Google-Backend-demystified/).
 
-## The Good, and the Bad
-Over the past 3 months, I've been contributing in the capacity of a GSoC intern to [GNOME](gnome.org), specifically to the [GNOME Virtual File System (GVfs)](https://gitlab.gnome.org/GNOME/gvfs). For the most part, I've been able to achieve what me and my mentor had expected from my work, but there have been a few lapses as well. One thing I wrote in my proposal was to write a complete test-suite for automatically testing the Google Backend in GVfs over an actual Google account. This was supposed to be done before the final evaluation but I did the mistake of under-estimating how much time it takes to produce efficient and re-useable software.
-The 10k feet view of the testing framework is that we wish to perform actual GIO operations and check for crashes 
-on a real world scenario. There's no other way to test the GVfs Google Backend because for any changes to the state of the cache, we must make a contact to Drive APIs. Mocking the Drive API isn't a solution because we'd then be spending time creating hundreds of fixtures, if not thousand. Moreover, the state of the Drive changes after each operation so we must take fetch a new list of updated files (which requires yet another fixture).
-So far, I've been able to create a program in C which can perform testing automatically and fail in case of crashes or abnormal behaviour. The idea was to use an actual Google account and use GNOME Online Accounts (GOA) APIs to create a service for libgdata. We can then use this service to perform various operations.
+## What we achieved?
 
-Also, the number of corner cases that may arise in as highly parallel and dynamic systems as Google Drive, is unfathomable. Me and my mentor after some elaborate discussions decided that for the time being, we'd just be implementing some basic operations and add more as we go.
+Over the past 3 months, I've been contributing in the capacity of a GSoC intern to [GNOME](gnome.org), specifically to the [GNOME Virtual File System (GVfs)](https://gitlab.gnome.org/GNOME/gvfs). For the most part, I've been able to achieve what me and my mentor had expected from my work, but there have been a few lapses as well.
 
-On the positive side of things, I've done a bit of extra work as well. The first thing I needed to do was to create a new libgdata API  which could support "Properties Resource" on file objects. At that time, libgdata was using autotools as its build system. Now, autotools is really an archaic system and quite prone to bugs, so that the latest version at that time (1.16.1) completely broke the build of libgdata. Upon discussion with Philip Withnall (@pwithnall), I decided that I'd take the onus of porting libgdata to meson. My mentor asked me to contact Inigo Martinez who's had solid experience on porting GNOME projects to meson in the past as well. So, me and @inigo both forged our way to a meson port and eventually we were able to drop autotools completely.
+Speaking of what happened during these 3 months, I've done a some extra work as well. The first thing I needed to do was to create a new libgdata API  which could support "Properties Resource" on file objects. At that time, libgdata was using autotools as its build system. Now, autotools is really an archaic system and quite prone to bugs, so that the latest version at that time (1.16.1) completely broke the build of libgdata.
 
-## What I did? Where's the code?
+Upon discussion with Philip Withnall (@pwithnall), I decided that I'd take the onus of porting libgdata to meson. My mentor asked me to contact Inigo Martinez who's had solid experience on porting GNOME projects to meson in the past as well. So, me and @inigo both forged our way to a meson port and eventually we were able to drop autotools completely. This was no-where mentioned in my proposal, and I didn't have the slightest clue that I'll be writing build files for meson as well. I had to learn everything from documentation and from earlier `meson.build` files written for other projects.
+
+Then, upon discussion with my mentor I started testing the newly created libgdata API (`GDataDocumentsProperty`) in GVfs. The first problem we wanted to fix was copy operation which I was able to do within a couple of days. The approach we followed was that we'd solve the easier cases first and then move on to more and more complex cases. I started off with just 8 cases in my mind, but soon realized that the number of cases can be very high (owing to files having multiple parents, shared files, their behaviour while copying and moving, etc). Everyday, I'd hit some new test-case and the backend would crash abruptly. Moreover, debugging such a complex piece of code is really difficult and each time I executed google daemon for testing, I'd do it inside gdb (just to make sure I don't miss on anything).
+
+At the moment of writing this post, the [MR for this](https://gitlab.gnome.org/GNOME/gvfs/merge_requests/58) fix is being reviewed and I'm happy to say that the copy/move functionality works as expected. We even support having files with multiple titles in the same folder, something like below:
+
+<img src="/assets/images/multiple-files-same-titles.png" alt="Operation unsupported error" style="display: block; margin: auto;">
+
+The above image may look quite shocking to people used to POSIX file systems, but it's all too common in a database-backed system like Google Drive. Moreover, we now support all operations (like rename, move, copy, delete, make_directory, replace, etc.) on such files as well. This is possible because under the hood, each file is uniquely identified by an ID and we use those IDs to create paths for these files in GVfs.
+
+## But where's the code?
 
 Below is a table which lists whatever I've done during GSoC'19. All the code that I've written is directly submitted to the Gitlab instance of GNOME and will eventually make way for GNOME's 3.36 stable release (we kinda missed 3.34 release because of a clashing feature freeze).
 
@@ -69,41 +75,34 @@ Below is a table which lists whatever I've done during GSoC'19. All the code tha
 </tr>
 <tr>
 <td align="right">5</td>
-<td>libgdata</td>
-<td>Add move document across folders on the server side method (Filed by Alberto Ruiz (@aruiz)</td>
-<td><a href="https://gitlab.gnome.org/GNOME/libgdata/merge_requests/2">https://gitlab.gnome.org/GNOME/libgdata/merge_requests/2</a></td>
-<td>Being Reviewed</td>
-</tr>
-<tr>
-<td align="right">6</td>
 <td>gvfs</td>
 <td>google: Support deleting shared Google Drive files</td>
 <td><a href="https://gitlab.gnome.org/GNOME/gvfs/merge_requests/46">https://gitlab.gnome.org/GNOME/gvfs/merge_requests/46</a></td>
 <td>MERGED</td>
 </tr>
 <tr>
-<td align="right">7</td>
+<td align="right">6</td>
 <td>gvfs</td>
 <td>google: Check ownership in is_owner() without additional HTTP request</td>
 <td><a href="https://gitlab.gnome.org/GNOME/gvfs/merge_requests/49">https://gitlab.gnome.org/GNOME/gvfs/merge_requests/49</a></td>
 <td>MERGED</td>
 </tr>
 <tr>
-<td align="right">8</td>
+<td align="right">7</td>
 <td>gvfs</td>
 <td>google: Fix issue with stale entries remaining after rename operation</td>
 <td><a href="https://gitlab.gnome.org/GNOME/gvfs/merge_requests/52">https://gitlab.gnome.org/GNOME/gvfs/merge_requests/52</a></td>
 <td>MERGED</td>
 </tr>
 <tr>
-<td align="right">9</td>
+<td align="right">8</td>
 <td>gvfs</td>
 <td>google: Fix erroneous unreffing of resolved entry in out label</td>
 <td><a href="https://gitlab.gnome.org/GNOME/gvfs/merge_requests/56">https://gitlab.gnome.org/GNOME/gvfs/merge_requests/56</a></td>
 <td>MERGED</td>
 </tr>
 <tr>
-<td align="right">10</td>
+<td align="right">9</td>
 <td>gvfs</td>
 <td>google: Fix move and copy operations</td>
 <td><a href="https://gitlab.gnome.org/GNOME/gvfs/merge_requests/58">https://gitlab.gnome.org/GNOME/gvfs/merge_requests/58</a></td>
@@ -111,7 +110,17 @@ Below is a table which lists whatever I've done during GSoC'19. All the code tha
 </tr>
 </tbody></table>
 
-## What's next?
+## What we under-estimated?
+
+One thing I wrote in my proposal was to write a complete test-suite for automatically testing the Google Backend in GVfs over an actual Google account. This was supposed to be done before the final evaluation but I did the mistake of under-estimating how much time it takes to produce efficient and re-useable software.
+
+The 10k feet view of the testing framework is that we wish to perform actual GIO operations and check for crashes 
+on a real world scenario. There's no other way to test the GVfs Google Backend because for any changes to the state of the cache, we must make a contact to Drive APIs. Mocking the Drive API isn't a solution because we'd then be spending time creating hundreds of fixtures, if not thousand. Moreover, the state of the Drive changes after each operation so we must take fetch a new list of updated files (which requires yet another fixture).
+So far, I've been able to create a program in C which can perform testing automatically and fail in case of crashes or abnormal behaviour. The idea was to use an actual Google account and use GNOME Online Accounts (GOA) APIs to create a service for libgdata. We can then use this service to perform various operations.
+
+Also, the number of corner cases that may arise in as highly parallel and dynamic systems as Google Drive, is unfathomable. Me and my mentor after some elaborate discussions decided that for the time being, we'd just be implementing some basic operations and add more as we go.
+
+## What's next? (pertaining to OSS in general)
 
 Time and again, I've written about my love for open source software and the freedom it brings. Since, I'm a proponent of it, I've decided that I'll continue contributing to open source in my free/spare time. Hopefully, I'll be able to get a job where I can contribute to GNOME full-time and that I'd get paid chatting up with my GNOMEies (kinda a dream job :-P). I've also planned on applying for a Foundation Membership and becoming a #FriendOfGNOME sometime later when I start earning. As for GVfs and libgdata, I'll keep contributing to these projects because the codebase is really interesting and that they've provided me the stepping stones into the OSS world.
 

@@ -182,7 +182,7 @@ I plan on sticking to GNOME organization and will apply for a foundation members
 
 As for the Google Backend for GVfs, although I had written in my GSoC Proposal that I'd be writing a full test-suite and possibly get it added to the CI pipeline for GVfs. But like everyone, I had also underestimated the time it takes to produce efficient and fully working piece of software. I've created a basic framework (a simple program) to test the backend. It connects to  google account (via Gnome Online Accounts API) and performs tests on that Drive. It uses `g_test_add_func()` to add test cases and we've planned on covering as many cases as possible.
 
-Thanks to anyone who's come reading this far. You, are worthy being a knight! :-)
+Thanks to anyone who's come reading this far. You, are worthy of being a knight! :-)
 
 <!-- ## A Humble Thanks -->
 
