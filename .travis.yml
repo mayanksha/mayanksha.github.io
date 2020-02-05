@@ -1,7 +1,7 @@
 addons:
   ssh_known_hosts:
     - msharma.in
-    - 13.126.191.202
+    - 3.6.110.212
 
 install:
   - bundle install --path $TRAVIS_BUILD_DIR/vendor/bundle
@@ -27,7 +27,7 @@ deploy:
   - provider: script
     skip_cleanup: true
     script:
-      - rsync -azr --delete-after -e 'ssh -i /tmp/deploy_rsa' $TRAVIS_BUILD_DIR/_site/* $DEPLOY_USER@13.126.191.202:/home/$DEPLOY_USER/site/_site/
+      - rsync -azr --delete-after -e 'ssh -i /tmp/deploy_rsa' $TRAVIS_BUILD_DIR/_site/* $DEPLOY_USER@3.6.110.212:/home/$DEPLOY_USER/site/_site/
     on:
       branch: master
 
