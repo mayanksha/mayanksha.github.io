@@ -53,7 +53,7 @@ So far, we have thought about providing a new API in libgdata to support the `Ap
 
 ## Ending Notes
 
-I'd be updating this blog fortnightly, and I've set my milestones according to that. If you'd like to have a look at my proposal, [here it is](https://drive.google.com/open?id=1ORZRsImr0WOr8Ur-6KCxXxXW__jHTQbK). 
+I'd be updating this blog fortnightly, and I've set my milestones according to that. If you'd like to have a look at my proposal, [here it is](https://msharma.in/assets/gsoc-proposal.pdf). 
 
 Finally, a big thanks to GNOME for believing in me and giving me this opportunity to contribute. I'd also like to thank my mentor Ondrej Holy for sitting patiently with me, for testing every change I make, and for guiding me. A big thanks to Philip Withnall (libgdata Maintainer, for his review of my code, and patiently answering my questions) and Debarshi Ray (for his excellent [post on volatile paths](https://debarshiray.wordpress.com/2015/09/13/google-drive-and-gnome-what-is-a-volatile-path/)). 
 
